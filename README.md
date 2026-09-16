@@ -139,6 +139,8 @@ The exact Unity folders can evolve, but networking, UI, and game presentation sh
 
 ```text
 go-heroes-unity/
+├── docs
+│   └── DEVELOPMENT_PLAN.md
 ├── Assets/
 │   ├── Scenes/
 │   ├── Scripts/
@@ -148,8 +150,7 @@ go-heroes-unity/
 │   └── Art/
 ├── Packages/
 ├── ProjectSettings/
-├── README.md
-└── DEVELOPMENT_PLAN.md
+└── README.md
 ```
 
 Do not commit generated Unity folders such as `Library/`, `Temp/`, `Logs/`, or build output.
@@ -183,7 +184,7 @@ Do not commit generated Unity folders such as `Library/`, `Temp/`, `Logs/`, or b
 
 ## Development plan
 
-See [`DEVELOPMENT_PLAN.md`](./DEVELOPMENT_PLAN.md).
+See [`DEVELOPMENT_PLAN.md`](./docs/DEVELOPMENT_PLAN.md).
 
 ## Status
 
