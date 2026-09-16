@@ -155,10 +155,6 @@ go-heroes-unity/
 
 Do not commit generated Unity folders such as `Library/`, `Temp/`, `Logs/`, or build output.
 
-## Related project
-
-**Go Heroes Server** contains the authoritative Go backend. The two repositories communicate only through the documented network protocol.
-
 ## Roadmap
 
 ### MVP
@@ -191,3 +187,7 @@ See [`DEVELOPMENT_PLAN.md`](./docs/DEVELOPMENT_PLAN.md).
 **Planning / learning project**
 
 The first milestone is complete when two running Unity clients can press Play, be matched by the Go server, finish a duel, see their result, and use Play Again.
+
+## Related project
+
+[Go Heroes Server](https://github.com/marcelobruzetti/go-heroes-server) contains the authoritative Go backend. The two repositories communicate only through the documented network protocol.
