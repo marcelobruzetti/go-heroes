@@ -15,6 +15,7 @@ public class GameUIController : MonoBehaviour
   [SerializeField] private GameObject waitingPanel;
   [SerializeField] private GameObject playingPanel;
   [SerializeField] private GameObject gameOverPanel;
+  [SerializeField] private UnityEngine.UI.Text resultText;
 
   private void ApplyState()
   {
@@ -40,6 +41,19 @@ public class GameUIController : MonoBehaviour
     Debug.Log("Start Battle clicked");
 
     currentState = GameState.Playing;
+    ApplyState();
+  }
+
+  public void FinishBattle(bool won)
+  {
+    resultText.text = won ? "YOU WIN!" : "YOU LOSE!";
+    currentState = GameState.GameOver;
+    ApplyState();
+  }
+
+  public void PlayAgain()
+  {
+    currentState = GameState.Waiting;
     ApplyState();
   }
 }
