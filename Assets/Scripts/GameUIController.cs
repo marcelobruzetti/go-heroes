@@ -30,9 +30,15 @@ public class GameUIController : MonoBehaviour
     ApplyState();
   }
 
-  public void StartMatchmaking()
+  public void ShowWaiting()
   {
     currentState = GameState.Waiting;
+    ApplyState();
+  }
+
+  public void ShowPlaying()
+  {
+    currentState = GameState.Playing;
     ApplyState();
   }
 
