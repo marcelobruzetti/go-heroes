@@ -20,17 +20,31 @@ public class GameClient : MonoBehaviour
   [ContextMenu("Connect and queue")]
   public async void QueueForMatchmaking()
   {
-
     if (stream == null)
     {
-      tcpClient = new TcpClient();
+      try
+      {
+        tcpClient = new TcpClient();
 
-      await tcpClient.ConnectAsync(host, port);
-      stream = tcpClient.GetStream();
+        await tcpClient.ConnectAsync(host, port);
+        stream = tcpClient.GetStream();
 
-      _ = ReadLoop();
+        _ = ReadLoop();
 
-      Debug.Log("Connected to server");
+        Debug.Log("Connected to server");
+      }
+      catch (SocketException exception)
+      {
+        Debug.LogWarning($"Could not connect to server: {exception.Message}");
+        ClearConnection();
+
+        receivedEvents.Enqueue(new ServerEvent
+        {
+          type = "connection_failed",
+          message = "Could not connect to the server. Please try again."
+        });
+        return;
+      }
     }
 
     await SendMessage(new ClientMessage
@@ -38,24 +52,7 @@ public class GameClient : MonoBehaviour
       type = "queue"
     });
     Debug.Log("Queued for a match");
-
-    // Debug.Log("Connected and queued for a match");
-    // _ = ReadLoop();
   }
-
-  // public async void QueueAgain()
-  // {
-  //   if (stream == null)
-  //   {
-  //     Debug.LogWarning("Cannot queue before connecting");
-  //     return;
-  //   }
-
-  //   await SendMessage(new ClientMessage
-  //   {
-  //     type = "queue"
-  //   });
-  // }
 
   private async Task ReadLoop()
   {
@@ -86,11 +83,7 @@ public class GameClient : MonoBehaviour
     {
       if (serverEvent.type == "disconnected")
       {
-        stream?.Close();
-        stream = null;
-
-        tcpClient?.Close();
-        tcpClient = null;
+        ClearConnection();
       }
 
       Debug.Log($"Server event: {serverEvent.type}");
@@ -120,5 +113,14 @@ public class GameClient : MonoBehaviour
       type = "action",
       action = action
     });
+  }
+
+  private void ClearConnection()
+  {
+    stream?.Close();
+    stream = null;
+
+    tcpClient?.Close();
+    tcpClient = null;
   }
 }

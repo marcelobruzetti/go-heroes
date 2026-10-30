@@ -24,6 +24,7 @@ public class GameUIController : MonoBehaviour
   [SerializeField] private UnityEngine.UI.Button defendButton;
   [SerializeField] private UnityEngine.UI.Button healButton;
   [SerializeField] private UnityEngine.UI.Text turnText;
+  [SerializeField] private UnityEngine.UI.Text connectionStatusText;
 
   private float enemyHealthFillMaxX;
   private float playerHealthFillMaxX;
@@ -104,5 +105,15 @@ public class GameUIController : MonoBehaviour
   {
     turnText.text = isMyTurn ? "YOUR TURN" : "ENEMY'S TURN";
     SetActionsInteractable(isMyTurn);
+  }
+
+  public void ShowConnectionError(string message)
+  {
+    connectionStatusText.text = message;
+  }
+
+  public void ClearConnectionError()
+  {
+    connectionStatusText.text = "";
   }
 }

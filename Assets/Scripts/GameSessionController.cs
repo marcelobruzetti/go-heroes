@@ -18,6 +18,7 @@ public class GameSessionController : MonoBehaviour
 
   public void Play()
   {
+    gameUI.ClearConnectionError();
     gameClient.QueueForMatchmaking();
   }
 
@@ -49,6 +50,10 @@ public class GameSessionController : MonoBehaviour
       case "disconnected":
         localPlayerId = null;
         gameUI.ShowReady();
+        break;
+
+      case "connection_failed":
+        gameUI.ShowConnectionError(serverEvent.message);
         break;
     }
   }
