@@ -25,6 +25,7 @@ public class GameUIController : MonoBehaviour
   [SerializeField] private UnityEngine.UI.Button healButton;
   [SerializeField] private UnityEngine.UI.Text turnText;
   [SerializeField] private UnityEngine.UI.Text connectionStatusText;
+  [SerializeField] private UnityEngine.UI.Text battleStatusText;
 
   private float enemyHealthFillMaxX;
   private float playerHealthFillMaxX;
@@ -115,5 +116,15 @@ public class GameUIController : MonoBehaviour
   public void ClearConnectionError()
   {
     connectionStatusText.text = "";
+  }
+
+  public void ShowBattleMessage(string message)
+  {
+    battleStatusText.text = message;
+  }
+
+  public void ClearBattleMessage()
+  {
+    battleStatusText.text = "";
   }
 }

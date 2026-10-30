@@ -56,6 +56,10 @@ public class GameSessionController : MonoBehaviour
       case "connection_failed":
         gameUI.ShowConnectionError(serverEvent.message);
         break;
+
+      case "action_rejected":
+        gameUI.ShowBattleMessage(serverEvent.message);
+        break;
     }
   }
 
@@ -95,6 +99,7 @@ public class GameSessionController : MonoBehaviour
 
     bool isMyTurn = gameState.current_turn_player_id == localPlayerId;
     gameUI.SetTurn(isMyTurn);
+    gameUI.ClearBattleMessage();
 
     Debug.Log(
         $"Match status: {gameState.status}; " +
