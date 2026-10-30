@@ -1,12 +1,15 @@
+[System.Serializable]
 public class ServerEvent
 {
   public string type;
   public string message;
   public string match_id;
+  public string player_id;
   public ServerGameState game_state;
   public string result;
 }
 
+[System.Serializable]
 public class ServerGameState
 {
   public PlayerState[] players;
@@ -14,6 +17,7 @@ public class ServerGameState
   public string status;
 }
 
+[System.Serializable]
 public class PlayerState
 {
   public string id;

@@ -17,6 +17,18 @@ public class GameUIController : MonoBehaviour
   [SerializeField] private GameObject gameOverPanel;
   [SerializeField] private UnityEngine.UI.Text resultText;
 
+  [SerializeField] private RectTransform enemyHealthFill;
+  [SerializeField] private RectTransform playerHealthFill;
+
+  private float enemyHealthFillMaxX;
+  private float playerHealthFillMaxX;
+
+  private void Awake()
+  {
+    enemyHealthFillMaxX = enemyHealthFill.anchorMax.x;
+    playerHealthFillMaxX = playerHealthFill.anchorMax.x;
+  }
+
   private void ApplyState()
   {
     readyPanel.SetActive(currentState == GameState.Ready);
@@ -27,6 +39,12 @@ public class GameUIController : MonoBehaviour
 
   private void Start()
   {
+    ApplyState();
+  }
+
+  public void ShowReady()
+  {
+    currentState = GameState.Ready;
     ApplyState();
   }
 
@@ -42,14 +60,6 @@ public class GameUIController : MonoBehaviour
     ApplyState();
   }
 
-  public void StartBattle()
-  {
-    Debug.Log("Start Battle clicked");
-
-    currentState = GameState.Playing;
-    ApplyState();
-  }
-
   public void FinishBattle(bool won)
   {
     resultText.text = won ? "YOU WIN!" : "YOU LOSE!";
@@ -61,5 +71,20 @@ public class GameUIController : MonoBehaviour
   {
     currentState = GameState.Waiting;
     ApplyState();
+  }
+
+  public void UpdateHealth(float enemyHealthRatio, float playerHealthRatio)
+  {
+    SetHealthWidth(enemyHealthFill, enemyHealthFillMaxX, enemyHealthRatio);
+    SetHealthWidth(playerHealthFill, playerHealthFillMaxX, playerHealthRatio);
+  }
+
+  private void SetHealthWidth(RectTransform fill, float fullHealthMaxX, float healthRatio)
+  {
+    healthRatio = Mathf.Clamp01(healthRatio);
+
+    Vector2 anchorMax = fill.anchorMax;
+    anchorMax.x = Mathf.Lerp(fill.anchorMin.x, fullHealthMaxX, healthRatio);
+    fill.anchorMax = anchorMax;
   }
 }
