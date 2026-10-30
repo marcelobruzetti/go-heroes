@@ -20,6 +20,11 @@ public class GameUIController : MonoBehaviour
   [SerializeField] private RectTransform enemyHealthFill;
   [SerializeField] private RectTransform playerHealthFill;
 
+  [SerializeField] private UnityEngine.UI.Button attackButton;
+  [SerializeField] private UnityEngine.UI.Button defendButton;
+  [SerializeField] private UnityEngine.UI.Button healButton;
+  [SerializeField] private UnityEngine.UI.Text turnText;
+
   private float enemyHealthFillMaxX;
   private float playerHealthFillMaxX;
 
@@ -86,5 +91,18 @@ public class GameUIController : MonoBehaviour
     Vector2 anchorMax = fill.anchorMax;
     anchorMax.x = Mathf.Lerp(fill.anchorMin.x, fullHealthMaxX, healthRatio);
     fill.anchorMax = anchorMax;
+  }
+
+  public void SetActionsInteractable(bool interactable)
+  {
+    attackButton.interactable = interactable;
+    defendButton.interactable = interactable;
+    healButton.interactable = interactable;
+  }
+
+  public void SetTurn(bool isMyTurn)
+  {
+    turnText.text = isMyTurn ? "YOUR TURN" : "ENEMY'S TURN";
+    SetActionsInteractable(isMyTurn);
   }
 }

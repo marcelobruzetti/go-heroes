@@ -88,6 +88,7 @@ public class GameSessionController : MonoBehaviour
     gameUI.UpdateHealth(enemyHealthRatio, localHealthRatio);
 
     bool isMyTurn = gameState.current_turn_player_id == localPlayerId;
+    gameUI.SetTurn(isMyTurn);
 
     Debug.Log(
         $"Match status: {gameState.status}; " +
