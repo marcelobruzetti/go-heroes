@@ -123,4 +123,9 @@ public class GameClient : MonoBehaviour
     tcpClient?.Close();
     tcpClient = null;
   }
+
+  private void OnDestroy()
+  {
+    ClearConnection();
+  }
 }

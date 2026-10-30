@@ -67,9 +67,16 @@ public class GameUIController : MonoBehaviour
     ApplyState();
   }
 
-  public void FinishBattle(bool won)
+  public void FinishBattle(bool won, string message)
   {
-    resultText.text = won ? "YOU WIN!" : "YOU LOSE!";
+    string result = won ? "YOU WIN!" : "YOU LOSE!";
+
+    if (!string.IsNullOrEmpty(message))
+    {
+      result += $"\n{message.ToUpperInvariant()}";
+    }
+
+    resultText.text = result;
     currentState = GameState.GameOver;
     ApplyState();
   }

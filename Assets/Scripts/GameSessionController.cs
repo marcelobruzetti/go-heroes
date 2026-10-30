@@ -44,7 +44,7 @@ public class GameSessionController : MonoBehaviour
         break;
 
       case "game_over":
-        gameUI.FinishBattle(serverEvent.result == "win");
+        gameUI.FinishBattle(serverEvent.result == "win", serverEvent.message);
         break;
 
       case "disconnected":
