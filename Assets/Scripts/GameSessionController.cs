@@ -50,6 +50,7 @@ public class GameSessionController : MonoBehaviour
       case "disconnected":
         localPlayerId = null;
         gameUI.ShowReady();
+        gameUI.ShowConnectionError("Connection to the server was lost. Please try again.");
         break;
 
       case "connection_failed":
