@@ -195,10 +195,10 @@ Configure these repository-level GitHub Actions values:
 | --- | --- | --- |
 | Secret | `UNITY_LICENSE` | Unity activation file used by GameCI. |
 | Secret | `DEPLOY_SSH_KEY` | Private key for the restricted SSH deployment user. |
-| Variable | `DEPLOY_HOST` | Droplet hostname or IP address. |
-| Variable | `DEPLOY_USER` | Restricted SSH deployment user. |
-| Variable | `DEPLOY_KNOWN_HOSTS` | Pinned SSH host key entry for the droplet. |
-| Variable | `DEPLOY_PATH` | Absolute release root, for example `/var/www/go-heroes`. |
+| Secret | `DEPLOY_HOST` | Droplet hostname or IP address. |
+| Secret | `DEPLOY_USER` | Restricted SSH deployment user. |
+| Secret | `DEPLOY_KNOWN_HOSTS` | Pinned SSH host key entry for the droplet. |
+| Secret | `DEPLOY_PATH` | Absolute release root, for example `/var/www/go-heroes`. |
 
 Configure Nginx to serve `${DEPLOY_PATH}/current` as the WebGL site's root.
 The deployed game must use `wss://` and Nginx must proxy `/ws` to the Go
