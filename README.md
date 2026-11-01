@@ -182,6 +182,31 @@ Do not commit generated Unity folders such as `Library/`, `Temp/`, `Logs/`, or b
 
 See [`DEVELOPMENT_PLAN.md`](./docs/DEVELOPMENT_PLAN.md).
 
+## WebGL CI/CD
+
+GitHub Actions builds a WebGL artifact for every pull request and push to
+`main`. Builds from `main` are deployed atomically to the DigitalOcean droplet:
+the workflow uploads a release to `releases/<commit SHA>` and repoints the
+`current` symlink only after the upload succeeds.
+
+Configure these repository-level GitHub Actions values:
+
+| Type | Name | Purpose |
+| --- | --- | --- |
+| Secret | `UNITY_LICENSE` | Unity activation file used by GameCI. |
+| Secret | `DEPLOY_SSH_KEY` | Private key for the restricted SSH deployment user. |
+| Variable | `DEPLOY_HOST` | Droplet hostname or IP address. |
+| Variable | `DEPLOY_USER` | Restricted SSH deployment user. |
+| Variable | `DEPLOY_KNOWN_HOSTS` | Pinned SSH host key entry for the droplet. |
+| Variable | `DEPLOY_PATH` | Absolute release root, for example `/var/www/go-heroes`. |
+
+Configure Nginx to serve `${DEPLOY_PATH}/current` as the WebGL site's root.
+The deployed game must use `wss://` and Nginx must proxy `/ws` to the Go
+server's private WebSocket listener. By default, the Unity client derives its
+WebSocket URL from the page origin (for example, `https://game.example.com`
+uses `wss://game.example.com/ws`). Set `webSocketUrl` in the Unity Inspector
+only when the game and WebSocket endpoint intentionally use different origins.
+
 ## Status
 
 **Planning / learning project**
