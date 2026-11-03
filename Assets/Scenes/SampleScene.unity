@@ -1673,7 +1673,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameClient
   host: 127.0.0.1
-  port: 3000
+  port: 8081
+  webSocketUrl: 
 --- !u!4 &914047218
 Transform:
   m_ObjectHideFlags: 0
@@ -2404,6 +2405,9 @@ MonoBehaviour:
   turnText: {fileID: 404550202}
   connectionStatusText: {fileID: 1534049680}
   battleStatusText: {fileID: 505559049}
+  enemyHero: {fileID: 0}
+  playerHero: {fileID: 0}
+  attackDuration: 0.2
 --- !u!1 &1486669900
 GameObject:
   m_ObjectHideFlags: 0

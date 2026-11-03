@@ -7,6 +7,7 @@ public class ServerEvent
   public string player_id;
   public ServerGameState game_state;
   public string result;
+  public string action;
 }
 
 [System.Serializable]

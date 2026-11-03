@@ -5,6 +5,8 @@ public class GameSessionController : MonoBehaviour
   [SerializeField] private GameUIController gameUI;
   [SerializeField] private GameClient gameClient;
   private string localPlayerId;
+  private PlayerState previousLocalPlayer;
+  private PlayerState previousEnemyPlayer;
 
   private void OnEnable()
   {
@@ -27,7 +29,7 @@ public class GameSessionController : MonoBehaviour
     switch (serverEvent.type)
     {
       case "game_state":
-        LogGameState(serverEvent.game_state);
+        LogGameState(serverEvent);
         break;
 
       case "connected":
@@ -40,6 +42,8 @@ public class GameSessionController : MonoBehaviour
         break;
 
       case "match_started":
+        previousLocalPlayer = null;
+        previousEnemyPlayer = null;
         gameUI.ShowPlaying();
         break;
 
@@ -63,8 +67,9 @@ public class GameSessionController : MonoBehaviour
     }
   }
 
-  private void LogGameState(ServerGameState gameState)
+  private void LogGameState(ServerEvent serverEvent)
   {
+    ServerGameState gameState = serverEvent.game_state;
     if (gameState == null)
     {
       Debug.LogWarning("Received game_state without state data");
@@ -92,10 +97,8 @@ public class GameSessionController : MonoBehaviour
       return;
     }
 
-    float localHealthRatio = (float)localPlayer.hp / localPlayer.max_hp;
-    float enemyHealthRatio = (float)enemyPlayer.hp / enemyPlayer.max_hp;
-
-    gameUI.UpdateHealth(enemyHealthRatio, localHealthRatio);
+    PlayActionFeedback(serverEvent, localPlayer, enemyPlayer);
+    gameUI.UpdateHealth(enemyPlayer.hp, enemyPlayer.max_hp, localPlayer.hp, localPlayer.max_hp);
 
     bool isMyTurn = gameState.current_turn_player_id == localPlayerId;
     gameUI.SetTurn(isMyTurn);
@@ -105,6 +108,33 @@ public class GameSessionController : MonoBehaviour
         $"Match status: {gameState.status}; " +
         $"my turn: {isMyTurn}"
     );
+
+    previousLocalPlayer = localPlayer;
+    previousEnemyPlayer = enemyPlayer;
+  }
+
+  private void PlayActionFeedback(ServerEvent serverEvent, PlayerState localPlayer, PlayerState enemyPlayer)
+  {
+    if (previousLocalPlayer == null || previousEnemyPlayer == null) return;
+
+    bool localPlayerActed = serverEvent.player_id == localPlayerId;
+    if (serverEvent.action == "attack")
+    {
+      int damage = localPlayerActed
+        ? previousEnemyPlayer.hp - enemyPlayer.hp
+        : previousLocalPlayer.hp - localPlayer.hp;
+      gameUI.PlayAttackAnimation(localPlayerActed, damage, damage == 0);
+      return;
+    }
+
+    if (serverEvent.action == "heal")
+    {
+      int healed = localPlayerActed
+        ? localPlayer.hp - previousLocalPlayer.hp
+        : enemyPlayer.hp - previousEnemyPlayer.hp;
+      gameUI.PlayHealAnimation(localPlayerActed, healed);
+      return;
+    }
   }
 
   public void ChooseAction(string action)
