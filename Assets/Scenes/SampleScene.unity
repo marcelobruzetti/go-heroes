@@ -342,7 +342,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ver 0.1
+  m_Text: ver 0.2
 --- !u!222 &128328917
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -664,11 +664,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 128328915}
   - {fileID: 969921845}
   - {fileID: 1427877212}
   - {fileID: 1971011880}
   - {fileID: 1486669901}
+  - {fileID: 128328915}
   m_Father: {fileID: 1481848698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18, y: 0.13}
