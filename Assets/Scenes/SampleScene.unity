@@ -518,7 +518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14762369, y: 0.772211}
   m_AnchorMax: {x: 0.14762369, y: 0.772211}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2.399994, y: 0}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215974378
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 245121954}
   - component: {fileID: 245121953}
   m_Layer: 0
-  m_Name: Hero Right 1
+  m_Name: Hero Right 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 970140181, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
+  m_Sprite: {fileID: 237291011, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2056,14 +2056,14 @@ RectTransform:
   - {fileID: 1306924416}
   - {fileID: 2018269448}
   - {fileID: 315605763}
-  - {fileID: 1138765783}
   - {fileID: 1976997327}
+  - {fileID: 1138765783}
   - {fileID: 1077847102}
   - {fileID: 1319410094}
   - {fileID: 575190721}
   - {fileID: 2054808721}
-  - {fileID: 848793717}
   - {fileID: 245121952}
+  - {fileID: 848793717}
   - {fileID: 1787972517}
   - {fileID: 357434057}
   m_Father: {fileID: 969921845}
@@ -2427,7 +2427,7 @@ GameObject:
   - component: {fileID: 848793719}
   - component: {fileID: 848793718}
   m_Layer: 0
-  m_Name: Hero Right 2
+  m_Name: Hero Right 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2828,7 +2828,7 @@ GameObject:
   - component: {fileID: 1138765785}
   - component: {fileID: 1138765784}
   m_Layer: 0
-  m_Name: Hero Left 2
+  m_Name: Hero Left 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2850,7 +2850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2624019, y: 0.37869313}
   m_AnchorMax: {x: 0.2624019, y: 0.37869313}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 13.6, y: 0}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138765784
@@ -2873,7 +2873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1105413666, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
+  m_Sprite: {fileID: 2094658933, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3079,7 +3079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.052360542, y: 0.772211}
   m_AnchorMax: {x: 0.052360542, y: 0.772211}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2.399994, y: 0}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306924417
@@ -4595,7 +4595,7 @@ GameObject:
   - component: {fileID: 1976997329}
   - component: {fileID: 1976997328}
   m_Layer: 0
-  m_Name: Hero Left 1
+  m_Name: Hero Left 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4617,7 +4617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.13845615, y: 0.37869313}
   m_AnchorMax: {x: 0.13845615, y: 0.37869313}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 7.2, y: 0}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1976997328
@@ -4640,7 +4640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2094658933, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
+  m_Sprite: {fileID: -1105413666, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4715,7 +4715,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 237291011, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
+  m_Sprite: {fileID: 1518848711, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4869,7 +4869,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1518848711, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
+  m_Sprite: {fileID: 970140181, guid: 40e4c24975674c4d91eb43b4f209d9da, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
