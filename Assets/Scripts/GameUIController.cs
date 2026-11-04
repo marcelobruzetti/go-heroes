@@ -26,6 +26,7 @@ public class GameUIController : MonoBehaviour
   [SerializeField] private UnityEngine.UI.Button defendButton;
   [SerializeField] private UnityEngine.UI.Button healButton;
   [SerializeField] private UnityEngine.UI.Text turnText;
+  [SerializeField] private UnityEngine.UI.Text waitingText;
   [SerializeField] private UnityEngine.UI.Text connectionStatusText;
   [SerializeField] private UnityEngine.UI.Text battleStatusText;
 
@@ -97,6 +98,7 @@ public class GameUIController : MonoBehaviour
 
   public void ShowWaiting()
   {
+    waitingText.text = "Waiting for opponent...";
     currentState = GameState.Waiting;
     ApplyState();
   }

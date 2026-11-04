@@ -64,7 +64,8 @@ public class GameClient : MonoBehaviour
       {
         Debug.LogWarning($"Could not connect to server: {exception.Message}");
         ClearConnection();
-        receivedEvents.Enqueue(new ServerEvent {
+        receivedEvents.Enqueue(new ServerEvent
+        {
           type = "connection_failed",
           message = "Could not connect to the server. Please try again."
         });
