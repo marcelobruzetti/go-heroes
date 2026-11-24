@@ -1,0 +1,134 @@
+{
+ "width": 2914,
+ "height": 572,
+ "pieces": [
+  {
+   "name": "icon",
+   "group": "whole",
+   "x": -1182.75,
+   "y": -290.0,
+   "width": 556,
+   "height": 580
+  },
+  {
+   "name": "layer0",
+   "group": "layer",
+   "x": -1182.75,
+   "y": -291.0,
+   "width": 556,
+   "height": 152
+  },
+  {
+   "name": "layer1",
+   "group": "layer",
+   "x": -1182.75,
+   "y": -219.5,
+   "width": 556,
+   "height": 156
+  },
+  {
+   "name": "layer2",
+   "group": "layer",
+   "x": -1182.75,
+   "y": -140.0,
+   "width": 556,
+   "height": 156
+  },
+  {
+   "name": "layer3",
+   "group": "layer",
+   "x": -1182.75,
+   "y": -64.5,
+   "width": 556,
+   "height": 156
+  },
+  {
+   "name": "layer4",
+   "group": "layer",
+   "x": -1182.75,
+   "y": 12.5,
+   "width": 556,
+   "height": 160
+  },
+  {
+   "name": "layer5",
+   "group": "layer",
+   "x": -1182.75,
+   "y": 94.5,
+   "width": 556,
+   "height": 196
+  },
+  {
+   "name": "letter0_S",
+   "group": "letter",
+   "x": -737.25,
+   "y": -210.5,
+   "width": 272,
+   "height": 416
+  },
+  {
+   "name": "letter1_t",
+   "group": "letter",
+   "x": -519.75,
+   "y": -212.5,
+   "width": 172,
+   "height": 420
+  },
+  {
+   "name": "letter2_a",
+   "group": "letter",
+   "x": -290.75,
+   "y": -212.0,
+   "width": 320,
+   "height": 320
+  },
+  {
+   "name": "letter3_c",
+   "group": "letter",
+   "x": 26.75,
+   "y": -211.5,
+   "width": 280,
+   "height": 320
+  },
+  {
+   "name": "letter4_k",
+   "group": "letter",
+   "x": 289.25,
+   "y": -213.0,
+   "width": 216,
+   "height": 420
+  },
+  {
+   "name": "letter5_t",
+   "group": "letter",
+   "x": 475.25,
+   "y": -212.5,
+   "width": 172,
+   "height": 420
+  },
+  {
+   "name": "letter6_o",
+   "group": "letter",
+   "x": 703.25,
+   "y": -211.0,
+   "width": 320,
+   "height": 320
+  },
+  {
+   "name": "letter7_n",
+   "group": "letter",
+   "x": 1001.75,
+   "y": -210.5,
+   "width": 240,
+   "height": 320
+  },
+  {
+   "name": "letter8_e",
+   "group": "letter",
+   "x": 1301.75,
+   "y": -211.0,
+   "width": 320,
+   "height": 320
+  }
+ ]
+}
